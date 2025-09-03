@@ -1,8 +1,10 @@
-# Hospedar localmente e publicar via túnel reverso
+# python-local-server
+
+## Hospedar localmente e publicar via túnel reverso
 
 Este repositório mostra como hospedar um projeto estático/leve na sua máquina local usando o servidor HTTP embutido do Python e, ao mesmo tempo, torná-lo acessível pela internet por meio de um túnel SSH reverso para um servidor em nuvem (`<IP-DO-SERVIDOR-EM-NUVEM>`). Fornecemos dois serviços systemd (no escopo do usuário): um para iniciar o servidor local e outro para manter o túnel aberto e resiliente.
 
-# Services systemd (user) para servidor local e túnel SSH
+## Services systemd (user) para servidor local e túnel SSH
 
 Este workspace inclui dois arquivos de serviço systemd (user) para:
 - Subir um servidor HTTP Python na porta 5001.
@@ -87,3 +89,7 @@ systemctl --user disable python-local-server.service
 ## Teste rápido
 - A partir da máquina local: `curl http://localhost:5001` deve retornar o conteúdo de `index.html`.
 - A partir da instância `<IP-DO-SERVIDOR-EM-NUVEM>`: `curl http://localhost:5001` deve retornar o mesmo conteúdo (via túnel reverso).
+
+## Autor
+- Nome: Fábio Berbert de Paula
+- Email: fberbert@gmail.com
