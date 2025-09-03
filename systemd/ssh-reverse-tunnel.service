@@ -1,0 +1,13 @@
+[Unit]
+Description=Reverse SSH tunnel 5001 -> <IP-DO-SERVIDOR-EM-NUVEM>
+After=network-online.target python-local-server.service
+Wants=network-online.target
+Requires=python-local-server.service
+
+[Service]
+ExecStart=/usr/bin/ssh -N -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -R 5001:localhost:5001 <IP-DO-SERVIDOR-EM-NUVEM>
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

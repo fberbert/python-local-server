@@ -1,0 +1,6 @@
+echo "Hello World" > index.html
+python3 -m http.server 5001
+
+Abrir tunel:
+
+ssh -N -f -R 5001:localhost:5001 52.35.188.239

@@ -1,0 +1,12 @@
+[Unit]
+Description=Python local HTTP server on 5001
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/projetos/python-local-server
+ExecStart=/usr/bin/python3 -m http.server 5001
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
